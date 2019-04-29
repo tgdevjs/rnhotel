@@ -8,18 +8,6 @@ react-native link
 react-native run-ios
 ```
 
-# Features:
-
-- Code organization (even though this is two features, organize the files as if it were a larger enterprise application)
-- Style organization
-- Data/Graph Organization
-- Component Organization
-- Folder Structure
-- Type checking
-- A clean method for managing local state with GraphQL queries
-- Unit test methodology/readability
-- Code readability (i.e. ability for future developers to pick up where you left off)
-
 ![](./resources/app-flow.gif)
 
 ### Account
@@ -52,13 +40,6 @@ React-Native
 Apollo-Client
 Jest/Enzyme
 Typescript
-
-# Dev Tools
-
-Eslint-Husky-Prettier
-ApolloDevTools
-React SketchApp
-Storybook
 
 # Back End
 
