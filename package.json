@@ -1,0 +1,64 @@
+{
+  "name": "rnhotel",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest",
+    "precommit": "lint-staged"
+  },
+  "dependencies": {
+    "@types/lodash": "^4.14.123",
+    "apollo-boost": "^0.3.1",
+    "apollo-cache-inmemory": "^1.5.1",
+    "apollo-cache-persist": "^0.1.1",
+    "cuid": "^2.1.6",
+    "graphql": "^14.2.1",
+    "graphql-tag": "^2.10.1",
+    "lodash": "^4.17.11",
+    "moment": "^2.24.0",
+    "prop-types": "^15.7.2",
+    "react": "16.8.3",
+    "react-apollo": "^2.5.4",
+    "react-native": "^0.59.6",
+    "react-native-calendars": "^1.32.0",
+    "react-native-gesture-handler": "^1.1.0",
+    "react-native-linear-gradient": "^2.5.4",
+    "react-native-segmented-control-tab": "^3.4.0",
+    "react-native-swipeout": "^2.3.6",
+    "react-native-vector-icons": "^6.4.2",
+    "react-navigation": "^3.8.1"
+  },
+  "devDependencies": {
+    "@babel/core": "7.4.4",
+    "@babel/runtime": "7.4.4",
+    "@types/jest": "24.0.12",
+    "@types/react": "16.8.14",
+    "@types/react-native": "0.57.51",
+    "@types/react-test-renderer": "16.8.1",
+    "@typescript-eslint/eslint-plugin": "^1.7.0",
+    "@typescript-eslint/parser": "^1.7.0",
+    "babel-jest": "24.7.1",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.12.1",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.2.0",
+    "husky": "0.14.3",
+    "jest": "24.7.1",
+    "lint-staged": "^8.1.5",
+    "metro-react-native-babel-preset": "0.53.1",
+    "prettier": "1.17.0",
+    "react-dom": "16",
+    "react-test-renderer": "16.8.3",
+    "typescript": "3.4.5"
+  },
+  "jest": {
+    "preset": "react-native"
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "eslint --fix",
+      "git add"
+    ]
+  }
+}
