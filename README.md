@@ -1,5 +1,12 @@
 React Native reservation app using ES6 and pure components.
 
+### Install
+
+```
+yarn
+react-native link
+```
+
 # Features:
 
 - Code organization (even though this is two features, organize the files as if it were a larger enterprise application)
