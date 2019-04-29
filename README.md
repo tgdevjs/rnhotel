@@ -5,6 +5,7 @@ React Native reservation app using ES6 and pure components.
 ```
 yarn
 react-native link
+react-native run-ios
 ```
 
 # Features:
