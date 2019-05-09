@@ -1,7 +1,6 @@
 module.exports = {
-  preset: 'react-native',
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
-  setupFilesAfterEnv: ['<rootDir>setup-jest.js'],
-  // parser: '@typescript-eslint/parser',
-  // plugins: ['@typescript-eslint'],
-}
+  preset: "react-native",
+  moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
+  setupFiles: ["<rootDir>/setup-jest.js"],
+  snapshotSerializers: ["enzyme-to-json/serializer"]
+};
