@@ -78,7 +78,6 @@ const styles = StyleSheet.create({
 
 export class ConfirmReservation extends React.Component<Props, State> {
   state = { hasCreatedReservation: false };
-
   id = cuid();
 
   renderContent() {
@@ -90,16 +89,6 @@ export class ConfirmReservation extends React.Component<Props, State> {
       user: { name }
     } = this.props;
     const { name: hotelName } = getParam("hotel");
-
-    const variables = {
-      data: {
-        id: this.id,
-        name,
-        hotelName,
-        arrivalDate: startDay,
-        departureDate: endDay
-      }
-    };
     const { hasCreatedReservation } = this.state;
 
     // User not logged in
@@ -114,6 +103,7 @@ export class ConfirmReservation extends React.Component<Props, State> {
       );
     }
 
+    // Reservation not booked
     if (!hasCreatedReservation) {
       return (
         <View style={styles.buttonSection}>
@@ -125,7 +115,15 @@ export class ConfirmReservation extends React.Component<Props, State> {
             title="Book Now"
             onPress={async () => {
               await createReservation({
-                variables,
+                variables: {
+                  data: {
+                    id: this.id,
+                    name,
+                    hotelName,
+                    arrivalDate: startDay,
+                    departureDate: endDay
+                  }
+                },
                 refetchQueries: [
                   {
                     query: reservationsQuery,
@@ -140,6 +138,7 @@ export class ConfirmReservation extends React.Component<Props, State> {
       );
     }
 
+    // Reservation booked success
     return (
       <View style={styles.buttonSection}>
         <View style={styles.actionSection}>
