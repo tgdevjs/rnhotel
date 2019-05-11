@@ -28,11 +28,11 @@ export class Account extends React.PureComponent<Props> {
       user
     } = this.props;
 
-    if (user.name) {
-      return <AccountMenuWithQuery onPress={this.onPress} user={user} />;
-    }
-
-    return <AccountGuest onPress={this.onPress} />;
+    return user.name ? (
+      <AccountMenuWithQuery onPress={this.onPress} user={user} />
+    ) : (
+      <AccountGuest onPress={this.onPress} />
+    );
   }
 }
 

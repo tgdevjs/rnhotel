@@ -44,9 +44,7 @@ export const AccountMenu = ({ setUser, user: { name } }: Props) => {
       <View style={styles.buttonSection}>
         <Button
           title="SignOut"
-          onPress={() => {
-            setUser({ variables: { input: { name: null } } });
-          }}
+          onPress={() => setUser({ variables: { input: { name: null } } })}
         />
       </View>
     </View>
