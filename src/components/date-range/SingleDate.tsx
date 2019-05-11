@@ -5,12 +5,12 @@ import moment from "moment";
 type Props = {
   containerStyle: object | null;
   date: string;
-  textStyle: object;
+  textStyle: object | null;
 };
 
 const styles = StyleSheet.create({
   dateText: {
-    fontSize: 40,
+    fontSize: 50,
     fontWeight: "600"
   },
   dateContainer: {

@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, Text } from "react-native";
 
 type Props = {
-  style: object;
+  style?: object;
   title: string;
 };
 

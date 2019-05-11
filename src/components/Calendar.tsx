@@ -2,25 +2,20 @@ import React, { Component } from "react";
 import { StyleSheet, View } from "react-native";
 import { CalendarList } from "react-native-calendars";
 import moment from "moment";
-import PropTypes, { array } from "prop-types";
 
 import { DateRange } from "./date-range";
+import { ReservationDateRangeType } from "../types";
 
 type Props = {
   endDay: string;
-  onSetDates: (dates: SelectedDates) => void;
+  onSetDates: (dates: ReservationDateRangeType) => void;
   startDay: string;
 };
 
 type State = {
   currentDate: string;
-  selectedDates: SelectedDates;
+  selectedDates: ReservationDateRangeType;
   markedDates: MarkedDates;
-};
-
-type SelectedDates = {
-  startDay: string;
-  endDay: string | null;
 };
 
 type MarkedDates = { [key: string]: MarkedCalendarDate };
@@ -131,7 +126,7 @@ export class Calendar extends Component<Props, State> {
       markedDates = this.getMarkedDates(newStartDay, newEndDay);
     }
 
-    const selectedDates: SelectedDates = {
+    const selectedDates: ReservationDateRangeType = {
       startDay: newStartDay,
       endDay: newEndDay
     };

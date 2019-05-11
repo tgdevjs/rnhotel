@@ -1,10 +1,14 @@
-import React, { Component } from 'react';
-import { Button } from 'react-native';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import { Button } from "react-native";
+import { NavigationScreenProp } from "react-navigation";
 
-import { Calendar } from '../../components';
+import { Calendar } from "../../components";
 
-export class SearchCalendar extends Component {
+type Props = {
+  navigation: NavigationScreenProp<any, any>;
+};
+
+export class SearchCalendar extends Component<Props> {
   static navigationOptions = ({ navigation }) => {
     const { startDay, endDay, onSelectDates } = navigation.state.params;
 
@@ -18,31 +22,26 @@ export class SearchCalendar extends Component {
           disabled={!endDay}
           title="Done"
         />
-      ),
+      )
     };
-  };
-
-  onSetDates = dates => {
-    const {
-      navigation: { setParams },
-    } = this.props;
-
-    setParams(dates);
   };
 
   render() {
     const {
       navigation: {
+        setParams,
         state: {
-          params: { endDay, startDay },
-        },
-      },
+          params: { endDay, startDay }
+        }
+      }
     } = this.props;
 
-    return <Calendar endDay={endDay} onSetDates={this.onSetDates} startDay={startDay} />;
+    return (
+      <Calendar
+        endDay={endDay}
+        onSetDates={dates => setParams(dates)}
+        startDay={startDay}
+      />
+    );
   }
 }
-
-SearchCalendar.propTypes = {
-  navigation: PropTypes.shape({}).isRequired,
-};

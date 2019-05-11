@@ -1,7 +1,11 @@
 import React from "react";
 import { Button, StyleSheet, Text, View } from "react-native";
 import PropTypes from "prop-types";
-import { StackActions, NavigationActions } from "react-navigation";
+import {
+  StackActions,
+  NavigationActions,
+  NavigationScreenProp
+} from "react-navigation";
 import { compose, graphql } from "react-apollo";
 import LinearGradient from "react-native-linear-gradient";
 import cuid from "cuid";
@@ -17,6 +21,19 @@ import {
   createReservationMutation
 } from "../../apollo/queries";
 import { getReservationsQueryVariables } from "../../utils";
+import { UserType } from "../../types";
+
+type Props = {
+  createReservation: () => void;
+  endDay: string;
+  navigation: NavigationScreenProp<any, any>;
+  startDay: string;
+  user: UserType;
+};
+
+type State = {
+  hasCreatedReservation: boolean;
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -59,7 +76,7 @@ const styles = StyleSheet.create({
   }
 });
 
-export class ConfirmReservation extends React.Component {
+export class ConfirmReservation extends React.Component<Props, State> {
   state = { hasCreatedReservation: false };
 
   id = cuid();
@@ -162,7 +179,7 @@ export class ConfirmReservation extends React.Component {
           style={styles.header}
         >
           <DateRange
-            style={styles.dateRange}
+            dateTextStyle={styles.dateRange}
             startDay={startDay}
             endDay={endDay}
           />
@@ -181,13 +198,3 @@ export const ConfirmReservationQuery = compose(
   withUserQuery,
   graphql(createReservationMutation, { name: "createReservation" })
 )(ConfirmReservation);
-
-ConfirmReservation.propTypes = {
-  createReservation: PropTypes.func.isRequired,
-  endDay: PropTypes.string.isRequired,
-  navigation: PropTypes.shape({}).isRequired,
-  startDay: PropTypes.string.isRequired,
-  user: PropTypes.shape({
-    name: PropTypes.string
-  }).isRequired
-};

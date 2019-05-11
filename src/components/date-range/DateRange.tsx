@@ -5,10 +5,10 @@ import moment from "moment";
 import { SingleDate } from ".";
 
 type Props = {
-  dateTextStyle: object;
+  containerStyle?: object;
+  dateTextStyle?: object | null;
   endDay: string | null;
   startDay: string;
-  style: object;
 };
 
 const styles = StyleSheet.create({
@@ -32,22 +32,22 @@ const styles = StyleSheet.create({
 });
 
 export const DateRange = ({
-  dateTextStyle,
+  containerStyle,
+  dateTextStyle = null,
   endDay,
-  startDay,
-  style
+  startDay
 }: Props) => {
   const startMoment = moment(startDay);
 
   return (
-    <View style={[styles.datesContainer, style]}>
+    <View style={[styles.datesContainer, containerStyle]}>
       <View style={styles.dates}>
         <SingleDate
           containerStyle={styles.dateContainerLeft}
           date={startDay}
           textStyle={dateTextStyle}
         />
-        <Text style={[styles.dashText, dateTextStyle]}> - </Text>
+        <Text style={styles.dashText}> - </Text>
         {!endDay ? (
           <View style={styles.datePlaceholder} />
         ) : (

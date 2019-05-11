@@ -1,40 +1,50 @@
-import React from 'react';
-import { Alert, Button, StyleSheet, TextInput, View } from 'react-native';
-import PropTypes from 'prop-types';
-import { compose } from 'react-apollo';
+import React from "react";
+import { Alert, Button, StyleSheet, TextInput, View } from "react-native";
+import { compose } from "react-apollo";
+import { NavigationScreenProp } from "react-navigation";
 
-import { withUserMutation } from '../../apollo/client-state/user';
-import { withAddUserMutation } from '../../apollo/client-state/userList';
+import { withUserMutation } from "../../apollo/client-state/user";
+import { withAddUserMutation } from "../../apollo/client-state/userList";
+
+type Props = {
+  navigation: NavigationScreenProp<any, any>;
+  setUser: () => void;
+  addUser: () => void;
+};
+
+type State = {
+  nameInput: string;
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center"
   },
   nameInput: {
     height: 40,
     width: 200,
-    borderColor: 'gray',
+    borderColor: "gray",
     borderWidth: 1,
     borderRadius: 5,
-    margin: 10,
-  },
+    margin: 10
+  }
 });
 
-export class JoinModal extends React.PureComponent {
-  state = { nameInput: '' };
+export class JoinModal extends React.PureComponent<Props, State> {
+  state = { nameInput: "" };
 
   onJoin = () => {
     const {
       addUser,
       navigation: { goBack },
-      setUser,
+      setUser
     } = this.props;
     const { nameInput: name } = this.state;
 
-    if (name === '') {
-      Alert.alert('Not valid name', 'please input name');
+    if (name === "") {
+      Alert.alert("Not valid name", "please input name");
     } else {
       setUser({ variables: { input: { name } } });
       addUser({ variables: { input: { name } } });
@@ -44,7 +54,7 @@ export class JoinModal extends React.PureComponent {
 
   render() {
     const {
-      navigation: { goBack },
+      navigation: { goBack }
     } = this.props;
     const { nameInput } = this.state;
     return (
@@ -60,7 +70,6 @@ export class JoinModal extends React.PureComponent {
         <Button title="Cancel" onPress={() => goBack()} />
       </View>
     );
-    // return <AccountGuest />;
   }
 }
 
@@ -68,9 +77,3 @@ export const JoinModalWithQuery = compose(
   withAddUserMutation,
   withUserMutation
 )(JoinModal);
-
-JoinModal.propTypes = {
-  navigation: PropTypes.shape({}).isRequired,
-  setUser: PropTypes.func.isRequired,
-  addUser: PropTypes.func.isRequired,
-};

@@ -1,6 +1,6 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Button, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { NavigationScreenProp } from "react-navigation";
 import { compose } from "react-apollo";
 
 import { DateRange, SignInButton } from "../../components";
@@ -10,6 +10,15 @@ import {
 } from "../../apollo/client-state/search";
 import { withUserQuery } from "../../apollo/client-state/user";
 
+import { UserType } from "../../types";
+
+type Props = {
+  endDay: string;
+  navigation: NavigationScreenProp<any, any>;
+  setCurrentSearch: () => void;
+  startDay: string;
+  user: UserType;
+};
 const styles = StyleSheet.create({
   container: {
     alignItems: "flex-start",
@@ -41,22 +50,8 @@ const styles = StyleSheet.create({
   }
 });
 
-export class Search extends React.Component {
+export class Search extends React.Component<Props> {
   static navigationOptions = () => ({ headerTitle: "Search" });
-
-  onPressDateRange = () => {
-    const {
-      endDay,
-      navigation: { navigate },
-      startDay
-    } = this.props;
-
-    navigate("Calendar", {
-      endDay,
-      onSelectDates: this.onSelectDates,
-      startDay
-    });
-  };
 
   onSelectDates = date => {
     const { setCurrentSearch } = this.props;
@@ -64,31 +59,34 @@ export class Search extends React.Component {
     setCurrentSearch({ variables: { input: { ...date } } });
   };
 
-  renderUser() {
-    const {
-      navigation: { navigate },
-      user: { name }
-    } = this.props;
-
-    if (name) return <Text style={styles.userText}>Hi, {name} </Text>;
-
-    return <SignInButton onPress={() => navigate("SignIn")} />;
-  }
-
   render() {
     const {
       endDay,
       navigation: { navigate },
-      startDay
+      startDay,
+      user: { name }
     } = this.props;
+    const { onSelectDates } = this;
 
     return (
       <View style={styles.container}>
-        <View style={styles.signInContainer}>{this.renderUser()}</View>
+        <View style={styles.signInContainer}>
+          {name ? (
+            <Text style={styles.userText}>Hi, {name} </Text>
+          ) : (
+            <SignInButton onPress={() => navigate("SignIn")} />
+          )}
+        </View>
         <View style={styles.main}>
           <TouchableOpacity
             style={{ width: 400 }}
-            onPress={this.onPressDateRange}
+            onPress={() => {
+              navigate("Calendar", {
+                endDay,
+                onSelectDates,
+                startDay
+              });
+            }}
           >
             <DateRange startDay={startDay} endDay={endDay} />
           </TouchableOpacity>
@@ -106,13 +104,3 @@ export const SearchWithQuery = compose(
   withSearchMutation,
   withUserQuery
 )(Search);
-
-Search.propTypes = {
-  endDay: PropTypes.string.isRequired,
-  navigation: PropTypes.shape({}).isRequired,
-  setCurrentSearch: PropTypes.func.isRequired,
-  startDay: PropTypes.string.isRequired,
-  user: PropTypes.shape({
-    name: PropTypes.string
-  }).isRequired
-};

@@ -1,10 +1,15 @@
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import PropTypes from "prop-types";
 import Swipeout from "react-native-swipeout";
 import moment from "moment";
 
 import { DateRange, HotelTitle, DateRangeError } from "../../components";
+import { ReservationType } from "../../types";
+
+type Props = {
+  item: ReservationType;
+  onDeleteItem: (id: string) => void;
+};
 
 const styles = StyleSheet.create({
   header: {
@@ -38,61 +43,39 @@ const styles = StyleSheet.create({
   }
 });
 
-export class StayItem extends React.PureComponent {
-  renderDate() {
-    const {
-      item: { arrivalDate, departureDate }
-    } = this.props;
-
-    // @todo standarize a date format for all reservations
-    if (!moment(arrivalDate).isValid() || !moment(departureDate).isValid()) {
-      return <DateRangeError startDay={arrivalDate} endDay={departureDate} />;
-    }
-
-    return (
-      <DateRange
-        dateTextStyle={styles.dateText}
-        style={styles.dateRange}
-        startDay={arrivalDate}
-        endDay={departureDate}
-      />
-    );
-  }
-
-  render() {
-    const {
-      item: { id, hotelName },
-      onDeleteItem
-    } = this.props;
-    const swipeBtns = [
-      {
-        text: "Delete",
-        backgroundColor: "red",
-        onPress: () => onDeleteItem(id)
-      }
-    ];
-
-    return (
-      <Swipeout right={swipeBtns} autoClose backgroundColor="transparent">
-        <TouchableOpacity onPress={() => {}}>
-          <View style={styles.header}>
-            {this.renderDate()}
-            <HotelTitle style={styles.hotelTitle} title={hotelName} />
-            <Text>{id}</Text>
-          </View>
-        </TouchableOpacity>
-      </Swipeout>
-    );
-  }
-}
-
-StayItem.propTypes = {
-  item: PropTypes.shape({
-    id: PropTypes.string,
-    name: PropTypes.string,
-    hotelName: PropTypes.string,
-    arrivalDate: PropTypes.string,
-    departureDate: PropTypes.string
-  }).isRequired,
-  onDeleteItem: PropTypes.func.isRequired
+export const StayItem = ({
+  item: { arrivalDate, departureDate, hotelName, id },
+  onDeleteItem
+}: Props) => {
+  return (
+    <Swipeout
+      right={[
+        {
+          text: "Delete",
+          backgroundColor: "red",
+          onPress: () => onDeleteItem(id)
+        }
+      ]}
+      autoClose
+      backgroundColor="transparent"
+    >
+      <TouchableOpacity onPress={() => {}}>
+        <View style={styles.header}>
+          {!moment(arrivalDate).isValid() ||
+          !moment(departureDate).isValid() ? (
+            <DateRangeError startDay={arrivalDate} endDay={departureDate} />
+          ) : (
+            <DateRange
+              containerStyle={styles.dateRange}
+              dateTextStyle={styles.dateText}
+              startDay={arrivalDate}
+              endDay={departureDate}
+            />
+          )}
+          <HotelTitle style={styles.hotelTitle} title={hotelName} />
+          <Text>{id}</Text>
+        </View>
+      </TouchableOpacity>
+    </Swipeout>
+  );
 };
