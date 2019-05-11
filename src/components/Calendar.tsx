@@ -1,102 +1,100 @@
-import React, { Component } from 'react';
-import { StyleSheet, View } from 'react-native';
-import { CalendarList } from 'react-native-calendars';
-import moment from 'moment';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import { StyleSheet, View } from "react-native";
+import { CalendarList } from "react-native-calendars";
+import moment from "moment";
+import PropTypes, { array } from "prop-types";
 
-import { DateDisplay } from '.';
+import { DateRange } from "./date-range";
+
+type Props = {
+  endDay: string;
+  onSetDates: (dates: SelectedDates) => void;
+  startDay: string;
+};
+
+type State = {
+  currentDate: string;
+  selectedDates: SelectedDates;
+  markedDates: MarkedDates;
+};
+
+type SelectedDates = {
+  startDay: string;
+  endDay: string | null;
+};
+
+type MarkedDates = { [key: string]: MarkedCalendarDate };
+
+type MarkedCalendarDate = {
+  startingDay: boolean;
+  endingDay: boolean;
+  disableTouchEvent: boolean;
+  color: string;
+  textColor: string;
+};
+
+type SelectedCalendarDate = {
+  dateString: string;
+};
 
 const styles = StyleSheet.create({
   calendar: {
     borderTopWidth: 1,
     paddingTop: 5,
     borderBottomWidth: 1,
-    borderColor: '#eee',
-    height: 350,
+    borderColor: "#eee",
+    height: 350
   },
   text: {
-    textAlign: 'center',
-    borderColor: '#bbb',
+    textAlign: "center",
+    borderColor: "#bbb",
     padding: 10,
-    backgroundColor: '#eee',
+    backgroundColor: "#eee"
   },
   container: {
-    flex: 1,
-  },
+    flex: 1
+  }
 });
 
-export class Calendar extends Component {
-  static getRangeOfDates(startMoment, endMoment) {
-    const now = startMoment.clone();
-    const dates = [];
-
-    while (now.isSameOrBefore(endMoment)) {
-      dates.push(now.format(moment.HTML5_FMT.DATE));
-      now.add(1, 'days');
-    }
-    return dates;
-  }
-
-  constructor(props) {
+export class Calendar extends Component<Props, State> {
+  constructor(props: Props) {
     super(props);
-    this.selectedColor = '#00bfff';
-    this.textColor = 'white';
 
     const { endDay, startDay } = this.props;
 
     this.state = {
       currentDate: moment().format(moment.HTML5_FMT.DATE),
-      endDay,
-      startDay,
-      markedDates: this.getMarkedDates(startDay, endDay),
+      selectedDates: { endDay, startDay },
+      markedDates: this.getMarkedDates(startDay, endDay)
     };
 
     this.onDayPress = this.onDayPress.bind(this);
   }
 
-  onDayPress({ dateString }) {
-    const { selectedColor, textColor } = this;
-    const { endDay, startDay } = this.state;
+  selectedColor = "#00bfff";
+  textColor = "white";
 
-    let newStartDay = dateString;
-    let newEndDay = null;
-    let markedDates = {
-      [newStartDay]: {
-        startingDay: true,
-        endingDay: true,
-        disableTouchEvent: true,
-        color: selectedColor,
-        textColor,
-      },
-    };
+  static getRangeOfDates(start: string, end: string): [string?] {
+    const startMoment = moment(start);
+    const endMoment = moment(end);
+    const now = startMoment.clone();
+    const dates: [string?] = [];
 
-    if (!endDay && moment(dateString).isAfter(moment(startDay))) {
-      newStartDay = startDay;
-      newEndDay = dateString;
-      markedDates = this.getMarkedDates(newStartDay, newEndDay);
+    while (now.isSameOrBefore(endMoment)) {
+      dates.push(now.format(moment.HTML5_FMT.DATE));
+      now.add(1, "days");
     }
-
-    const dates = {
-      startDay: newStartDay,
-      endDay: newEndDay,
-      markedDates,
-    };
-
-    this.setState(dates, () => {
-      const { onSetDates } = this.props;
-
-      onSetDates(dates);
-    });
+    return dates;
   }
 
-  getMarkedDates(start, end) {
-    // return an object with keys of dates between start and end date
+  getMarkedDates(start: string, end: string): MarkedDates {
+    // Return an object with keys of dates between start and end date
     const { selectedColor, textColor } = this;
-    const dates = Calendar.getRangeOfDates(moment(start), moment(end));
-    const markedDates = dates.reduce(
-      (prev, date) => ({
-        ...prev,
-        [date]: { color: selectedColor, textColor },
+    const dates = Calendar.getRangeOfDates(start, end);
+    const markedDates: MarkedDates = dates.reduce(
+      (previousValue, currentValue) => ({
+        ...previousValue,
+        [currentValue]: { color: selectedColor, textColor }
       }),
       {}
     );
@@ -106,12 +104,53 @@ export class Calendar extends Component {
     return markedDates;
   }
 
+  onDayPress({ dateString }: SelectedCalendarDate): void {
+    const { selectedColor, textColor } = this;
+    const {
+      selectedDates: { endDay, startDay }
+    } = this.state;
+
+    let newStartDay = dateString;
+    let newEndDay = null;
+
+    // Set MarkedDates to selected day
+    let markedDates: MarkedDates = {
+      [newStartDay]: {
+        startingDay: true,
+        endingDay: true,
+        disableTouchEvent: true,
+        color: selectedColor,
+        textColor
+      }
+    };
+
+    if (!endDay && moment(dateString).isAfter(moment(startDay))) {
+      // Set Marked Dates to range between startDay and selectedDay
+      newStartDay = startDay;
+      newEndDay = dateString;
+      markedDates = this.getMarkedDates(newStartDay, newEndDay);
+    }
+
+    const selectedDates: SelectedDates = {
+      startDay: newStartDay,
+      endDay: newEndDay
+    };
+
+    this.setState({ selectedDates, markedDates }, () => {
+      this.props.onSetDates(selectedDates);
+    });
+  }
+
   render() {
-    const { currentDate, endDay, markedDates, startDay } = this.state;
+    const {
+      currentDate,
+      selectedDates: { startDay, endDay },
+      markedDates
+    } = this.state;
 
     return (
       <View style={styles.container}>
-        <DateDisplay startDay={startDay} endDay={endDay} />
+        <DateRange startDay={startDay} endDay={endDay} />
         <CalendarList
           style={styles.calendar}
           current={currentDate}
@@ -128,15 +167,3 @@ export class Calendar extends Component {
     );
   }
 }
-
-Calendar.propTypes = {
-  endDay: PropTypes.string,
-  onSetDates: PropTypes.func,
-  startDay: PropTypes.string,
-};
-
-Calendar.defaultProps = {
-  endDay: null,
-  onSetDates: () => {},
-  startDay: null,
-};

@@ -1,58 +1,58 @@
-import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import PropTypes from 'prop-types';
-import Swipeout from 'react-native-swipeout';
-import moment from 'moment';
+import React from "react";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import PropTypes from "prop-types";
+import Swipeout from "react-native-swipeout";
+import moment from "moment";
 
-import { DateDisplay, HotelTitle, InvalidDateDisplay } from '../../components';
+import { DateRange, HotelTitle, DateRangeError } from "../../components";
 
 const styles = StyleSheet.create({
   header: {
-    alignItems: 'center',
-    borderColor: 'lightgray',
+    alignItems: "center",
+    borderColor: "lightgray",
     borderWidth: 1,
     borderRadius: 10,
-    justifyContent: 'center',
+    justifyContent: "center",
     marginHorizontal: 10,
-    height: 160,
+    height: 160
   },
   textContainer: {
-    paddingLeft: 42,
+    paddingLeft: 42
   },
-  dateDisplay: {
-    paddingBottom: 10,
+  dateRange: {
+    paddingBottom: 10
   },
   dateText: {
     fontSize: 30,
-    fontWeight: '600',
+    fontWeight: "600"
   },
   hotelTitle: {
-    color: 'black',
+    color: "black"
   },
   name: {
     fontSize: 16,
-    fontWeight: '600',
+    fontWeight: "600"
   },
   date: {
-    flexDirection: 'row',
-  },
+    flexDirection: "row"
+  }
 });
 
 export class StayItem extends React.PureComponent {
   renderDate() {
     const {
-      item: { arrivalDate, departureDate },
+      item: { arrivalDate, departureDate }
     } = this.props;
 
     // @todo standarize a date format for all reservations
     if (!moment(arrivalDate).isValid() || !moment(departureDate).isValid()) {
-      return <InvalidDateDisplay startDay={arrivalDate} endDay={departureDate} />;
+      return <DateRangeError startDay={arrivalDate} endDay={departureDate} />;
     }
 
     return (
-      <DateDisplay
+      <DateRange
         dateTextStyle={styles.dateText}
-        style={styles.dateDisplay}
+        style={styles.dateRange}
         startDay={arrivalDate}
         endDay={departureDate}
       />
@@ -62,14 +62,14 @@ export class StayItem extends React.PureComponent {
   render() {
     const {
       item: { id, hotelName },
-      onDeleteItem,
+      onDeleteItem
     } = this.props;
     const swipeBtns = [
       {
-        text: 'Delete',
-        backgroundColor: 'red',
-        onPress: () => onDeleteItem(id),
-      },
+        text: "Delete",
+        backgroundColor: "red",
+        onPress: () => onDeleteItem(id)
+      }
     ];
 
     return (
@@ -92,7 +92,7 @@ StayItem.propTypes = {
     name: PropTypes.string,
     hotelName: PropTypes.string,
     arrivalDate: PropTypes.string,
-    departureDate: PropTypes.string,
+    departureDate: PropTypes.string
   }).isRequired,
-  onDeleteItem: PropTypes.func.isRequired,
+  onDeleteItem: PropTypes.func.isRequired
 };

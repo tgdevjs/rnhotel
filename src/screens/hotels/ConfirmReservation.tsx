@@ -1,56 +1,62 @@
-import React from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
-import PropTypes from 'prop-types';
-import { StackActions, NavigationActions } from 'react-navigation';
-import { compose, graphql } from 'react-apollo';
-import LinearGradient from 'react-native-linear-gradient';
-import cuid from 'cuid';
+import React from "react";
+import { Button, StyleSheet, Text, View } from "react-native";
+import PropTypes from "prop-types";
+import { StackActions, NavigationActions } from "react-navigation";
+import { compose, graphql } from "react-apollo";
+import LinearGradient from "react-native-linear-gradient";
+import cuid from "cuid";
 
-import { DateDisplay, HotelTitle, SignInButton } from '../../components';
-import { withSearchMutation, withSearchQuery } from '../../apollo/client-state/search';
-import { withUserQuery } from '../../apollo/client-state/user';
-import { reservationsQuery, createReservationMutation } from '../../apollo/queries';
-import { getReservationsQueryVariables } from '../../utils';
+import { DateRange, HotelTitle, SignInButton } from "../../components";
+import {
+  withSearchMutation,
+  withSearchQuery
+} from "../../apollo/client-state/search";
+import { withUserQuery } from "../../apollo/client-state/user";
+import {
+  reservationsQuery,
+  createReservationMutation
+} from "../../apollo/queries";
+import { getReservationsQueryVariables } from "../../utils";
 
 const styles = StyleSheet.create({
   container: {
-    justifyContent: 'space-between',
-    flex: 1,
+    justifyContent: "space-between",
+    flex: 1
   },
   header: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: 200,
+    alignItems: "center",
+    justifyContent: "center",
+    height: 200
   },
-  dateDisplay: {
-    paddingBottom: 30,
+  dateRange: {
+    paddingBottom: 30
   },
   hotelTitle: {
-    color: 'black',
+    color: "black"
   },
   main: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: "center"
   },
   buttonSection: {
     marginBottom: 40,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center"
   },
   actionSection: {
     margin: 20,
-    alignItems: 'center',
+    alignItems: "center"
   },
   actionText: {
-    fontSize: 16,
+    fontSize: 16
   },
   labelText: {
-    fontSize: 16,
+    fontSize: 16
   },
   valueText: {
     fontSize: 20,
-    fontWeight: '600',
-  },
+    fontWeight: "600"
+  }
 });
 
 export class ConfirmReservation extends React.Component {
@@ -64,9 +70,9 @@ export class ConfirmReservation extends React.Component {
       endDay,
       navigation: { dispatch, getParam, navigate, popToTop },
       startDay,
-      user: { name },
+      user: { name }
     } = this.props;
-    const { name: hotelName } = getParam('hotel');
+    const { name: hotelName } = getParam("hotel");
 
     const variables = {
       data: {
@@ -74,8 +80,8 @@ export class ConfirmReservation extends React.Component {
         name,
         hotelName,
         arrivalDate: startDay,
-        departureDate: endDay,
-      },
+        departureDate: endDay
+      }
     };
     const { hasCreatedReservation } = this.state;
 
@@ -86,7 +92,7 @@ export class ConfirmReservation extends React.Component {
           <View style={styles.actionSection}>
             <Text style={styles.labelText}>Sign in to continue.</Text>
           </View>
-          <SignInButton onPress={() => navigate('SignIn')} />
+          <SignInButton onPress={() => navigate("SignIn")} />
         </View>
       );
     }
@@ -104,8 +110,11 @@ export class ConfirmReservation extends React.Component {
               await createReservation({
                 variables,
                 refetchQueries: [
-                  { query: reservationsQuery, variables: getReservationsQueryVariables({ name }) },
-                ],
+                  {
+                    query: reservationsQuery,
+                    variables: getReservationsQueryVariables({ name })
+                  }
+                ]
               });
               this.setState({ hasCreatedReservation: true });
             }}
@@ -128,10 +137,10 @@ export class ConfirmReservation extends React.Component {
             dispatch(
               StackActions.reset({
                 index: 0,
-                actions: [NavigationActions.navigate({ routeName: 'Main' })],
+                actions: [NavigationActions.navigate({ routeName: "Main" })]
               })
             );
-            navigate('Stays');
+            navigate("Stays");
           }}
         />
       </View>
@@ -142,14 +151,21 @@ export class ConfirmReservation extends React.Component {
     const {
       endDay,
       navigation: { getParam },
-      startDay,
+      startDay
     } = this.props;
-    const { name: hotelName } = getParam('hotel');
+    const { name: hotelName } = getParam("hotel");
 
     return (
       <View style={styles.container}>
-        <LinearGradient colors={['#192f6a00', '#3b599888']} style={styles.header}>
-          <DateDisplay style={styles.dateDisplay} startDay={startDay} endDay={endDay} />
+        <LinearGradient
+          colors={["#192f6a00", "#3b599888"]}
+          style={styles.header}
+        >
+          <DateRange
+            style={styles.dateRange}
+            startDay={startDay}
+            endDay={endDay}
+          />
           <HotelTitle style={styles.hotelTitle} title={hotelName} />
           <Text>{this.id}</Text>
         </LinearGradient>
@@ -163,7 +179,7 @@ export const ConfirmReservationQuery = compose(
   withSearchQuery,
   withSearchMutation,
   withUserQuery,
-  graphql(createReservationMutation, { name: 'createReservation' })
+  graphql(createReservationMutation, { name: "createReservation" })
 )(ConfirmReservation);
 
 ConfirmReservation.propTypes = {
@@ -172,6 +188,6 @@ ConfirmReservation.propTypes = {
   navigation: PropTypes.shape({}).isRequired,
   startDay: PropTypes.string.isRequired,
   user: PropTypes.shape({
-    name: PropTypes.string,
-  }).isRequired,
+    name: PropTypes.string
+  }).isRequired
 };

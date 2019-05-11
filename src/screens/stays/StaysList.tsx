@@ -1,25 +1,32 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Query, Mutation } from 'react-apollo';
-import { FlatList, StyleSheet, View } from 'react-native';
+import React from "react";
+import PropTypes from "prop-types";
+import { Query, Mutation } from "react-apollo";
+import { FlatList, StyleSheet, View } from "react-native";
 
-import { StayItem } from '.';
-import { reservationsQuery, deleteReservationMutation } from '../../apollo/queries';
-import { getReservationsQueryVariables } from '../../utils';
+import { StayItem } from ".";
+import {
+  reservationsQuery,
+  deleteReservationMutation
+} from "../../apollo/queries";
+import { getReservationsQueryVariables } from "../../utils";
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 1
   },
   itemSeparator: {
-    height: 8,
-  },
+    height: 8
+  }
 });
 
 export class StaysList extends React.PureComponent {
   render() {
     const { name, orderBy, timeRangeKey } = this.props;
-    const variables = getReservationsQueryVariables({ name, orderBy, timeRangeKey });
+    const variables = getReservationsQueryVariables({
+      name,
+      orderBy,
+      timeRangeKey
+    });
 
     return (
       <Mutation
@@ -27,14 +34,16 @@ export class StaysList extends React.PureComponent {
         update={(cache, { data: { deleteReservation } }) => {
           const { reservations } = cache.readQuery({
             query: reservationsQuery,
-            variables,
+            variables
           });
           cache.writeQuery({
             query: reservationsQuery,
             variables,
             data: {
-              reservations: reservations.filter(item => item.id !== deleteReservation.id),
-            },
+              reservations: reservations.filter(
+                item => item.id !== deleteReservation.id
+              )
+            }
           });
         }}
       >
@@ -48,12 +57,16 @@ export class StaysList extends React.PureComponent {
                   <FlatList
                     data={data.reservations}
                     horizontal={false}
-                    ItemSeparatorComponent={() => <View style={styles.itemSeparator} />}
+                    ItemSeparatorComponent={() => (
+                      <View style={styles.itemSeparator} />
+                    )}
                     keyExtractor={item => item.id}
                     renderItem={({ item }) => (
                       <StayItem
                         item={item}
-                        onDeleteItem={id => deleteReservation({ variables: { where: { id } } })}
+                        onDeleteItem={id =>
+                          deleteReservation({ variables: { where: { id } } })
+                        }
                       />
                     )}
                   />
@@ -70,5 +83,5 @@ export class StaysList extends React.PureComponent {
 StaysList.propTypes = {
   name: PropTypes.string.isRequired,
   orderBy: PropTypes.string.isRequired,
-  timeRangeKey: PropTypes.string.isRequired,
+  timeRangeKey: PropTypes.string.isRequired
 };
