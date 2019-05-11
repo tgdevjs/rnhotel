@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
   }
 });
 
-export const StayItem = ({
+export const ReservationItem = ({
   item: { arrivalDate, departureDate, hotelName, id },
   onDeleteItem
 }: Props) => {

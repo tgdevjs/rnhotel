@@ -4,7 +4,7 @@ import SegmentedControlTab from "react-native-segmented-control-tab";
 import { NavigationScreenProp } from "react-navigation";
 
 import { withUserQuery } from "../../apollo/client-state/user";
-import { StaysList, StaysListGuest } from ".";
+import { ReservationList, ReservationListGuest } from ".";
 import { UserType } from "../../types";
 
 type Props = {
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     padding: 30
   }
 });
-export class Stays extends React.PureComponent<Props, State> {
+export class Reservations extends React.PureComponent<Props, State> {
   static navigationOptions = () => ({ headerTitle: "Stays" });
 
   state = { selectedIndex: 1 };
@@ -52,17 +52,17 @@ export class Stays extends React.PureComponent<Props, State> {
           />
         </View>
         {isSignedIn ? (
-          <StaysList
+          <ReservationList
             name={name}
             orderBy="createdAt_DESC"
             timeRangeKey={timeRangeKey}
           />
         ) : (
-          <StaysListGuest onSignIn={() => navigate("SignIn")} />
+          <ReservationListGuest onSignIn={() => navigate("SignIn")} />
         )}
       </View>
     );
   }
 }
 
-export const StaysWithQuery = withUserQuery(Stays);
+export const ReservationsWithQuery = withUserQuery(Reservations);

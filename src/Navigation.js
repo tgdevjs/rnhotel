@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 import {
   createAppContainer,
   createStackNavigator,
-  createBottomTabNavigator,
-} from 'react-navigation';
-import Ionicons from 'react-native-vector-icons/MaterialIcons';
+  createBottomTabNavigator
+} from "react-navigation";
+import Ionicons from "react-native-vector-icons/MaterialIcons";
 
 import {
   Hotels,
@@ -14,43 +14,43 @@ import {
   AccountWithQuery,
   SignInModalWithQuery,
   JoinModalWithQuery,
-  StaysWithQuery,
-} from './screens';
+  ReservationsWithQuery
+} from "./screens";
 
 const SearchStack = createStackNavigator({
   Search: {
-    screen: SearchWithQuery,
+    screen: SearchWithQuery
   },
   Calendar: {
-    screen: SearchCalendar,
+    screen: SearchCalendar
   },
   Hotels: {
-    screen: Hotels,
+    screen: Hotels
   },
   ConfirmReservation: {
-    screen: ConfirmReservationQuery,
-  },
+    screen: ConfirmReservationQuery
+  }
 });
 
 const AccountStack = createStackNavigator({
   Account: {
-    screen: AccountWithQuery,
-  },
+    screen: AccountWithQuery
+  }
 });
 
 const StaysStack = createStackNavigator({
   Stays: {
-    screen: StaysWithQuery,
-  },
+    screen: ReservationsWithQuery
+  }
 });
 
-const icons = { Search: 'search', Account: 'person', Stays: 'event' };
+const icons = { Search: "search", Account: "person", Stays: "event" };
 
 const bottomTabNavigator = createBottomTabNavigator(
   {
     Search: SearchStack,
     Account: AccountStack,
-    Stays: StaysStack,
+    Stays: StaysStack
   },
   {
     defaultNavigationOptions: ({ navigation }) => ({
@@ -58,30 +58,30 @@ const bottomTabNavigator = createBottomTabNavigator(
         const iconName = icons[navigation.state.routeName];
 
         return <Ionicons name={iconName} size={25} color={tintColor} />;
-      },
+      }
     }),
     tabBarOptions: {
-      activeTintColor: 'navy',
-      inactiveTintColor: 'gray',
-    },
+      activeTintColor: "navy",
+      inactiveTintColor: "gray"
+    }
   }
 );
 
 const AppNavigator = createStackNavigator(
   {
     Main: {
-      screen: bottomTabNavigator,
+      screen: bottomTabNavigator
     },
     SignIn: {
-      screen: SignInModalWithQuery,
+      screen: SignInModalWithQuery
     },
     Join: {
-      screen: JoinModalWithQuery,
-    },
+      screen: JoinModalWithQuery
+    }
   },
   {
-    mode: 'modal',
-    headerMode: 'none',
+    mode: "modal",
+    headerMode: "none"
   }
 );
 

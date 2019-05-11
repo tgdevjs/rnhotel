@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Query, Mutation } from "react-apollo";
 import { FlatList, StyleSheet, View } from "react-native";
 
-import { StayItem } from ".";
+import { ReservationItem } from ".";
 import { ReservationType } from "../../types";
 import {
   reservationsQuery,
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
   }
 });
 
-export const StaysList = ({ name, orderBy, timeRangeKey }: Props) => {
+export const ReservationList = ({ name, orderBy, timeRangeKey }: Props) => {
   const variables = getReservationsQueryVariables({
     name,
     orderBy,
@@ -67,7 +67,7 @@ export const StaysList = ({ name, orderBy, timeRangeKey }: Props) => {
                   )}
                   keyExtractor={(item: ReservationType) => item.id}
                   renderItem={({ item }) => (
-                    <StayItem
+                    <ReservationItem
                       item={item}
                       onDeleteItem={id =>
                         deleteReservation({ variables: { where: { id } } })

@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
   }
 });
 
-export const StaysListGuest = ({ onSignIn }: Props) => {
+export const ReservationListGuest = ({ onSignIn }: Props) => {
   return (
     <View style={styles.mainContainer}>
       <View style={styles.main}>
