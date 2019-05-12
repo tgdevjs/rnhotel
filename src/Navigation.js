@@ -16,6 +16,7 @@ import {
   JoinModalWithQuery,
   ReservationsWithQuery
 } from "./screens";
+import { colors } from "./styles";
 
 const SearchStack = createStackNavigator({
   Search: {
@@ -61,8 +62,8 @@ const bottomTabNavigator = createBottomTabNavigator(
       }
     }),
     tabBarOptions: {
-      activeTintColor: "navy",
-      inactiveTintColor: "gray"
+      activeTintColor: colors.dogerBlue,
+      inactiveTintColor: colors.gray
     }
   }
 );

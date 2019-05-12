@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
+import { colors } from "../styles";
 
 type Props = {
   onPress: () => void;
@@ -9,11 +10,11 @@ const styles = StyleSheet.create({
   signInButton: {
     padding: 10,
     borderRadius: 5,
-    backgroundColor: "dodgerblue"
+    backgroundColor: colors.dogerBlue
   },
   signInButtonText: {
-    color: "white",
-    fontWeight: "600",
+    color: colors.white,
+    fontWeight: "bold",
     textAlign: "center"
   }
 });

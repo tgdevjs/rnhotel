@@ -6,6 +6,7 @@ import LinearGradient from "react-native-linear-gradient";
 import { TouchableHighlight } from "react-native-gesture-handler";
 
 import { HotelTitle } from "../../components";
+import { colors } from "../../styles";
 
 type Props = {
   navigation: NavigationScreenProp<any, any>;
@@ -73,7 +74,7 @@ export const Hotels = ({ navigation: { navigate } }: Props) => {
         >
           <ImageBackground source={{ uri: imageSrc }} style={styles.item}>
             {/* <View style={styles.item}> */}
-            <LinearGradient colors={["#192f6a00", "#3b599888", "#4c669fff"]}>
+            <LinearGradient colors={["transparent", colors.blackAlpha]}>
               <View style={styles.itemTitleBar}>
                 <HotelTitle title={name} />
                 {renderIconRow()}

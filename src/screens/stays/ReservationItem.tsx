@@ -5,6 +5,7 @@ import moment from "moment";
 
 import { DateRange, HotelTitle, DateRangeError } from "../../components";
 import { ReservationType } from "../../types";
+import { colors } from "../../styles";
 
 type Props = {
   item: ReservationType;
@@ -14,7 +15,7 @@ type Props = {
 const styles = StyleSheet.create({
   header: {
     alignItems: "center",
-    borderColor: "lightgray",
+    borderColor: colors.gray,
     borderWidth: 1,
     borderRadius: 10,
     justifyContent: "center",
@@ -29,14 +30,14 @@ const styles = StyleSheet.create({
   },
   dateText: {
     fontSize: 30,
-    fontWeight: "600"
+    fontWeight: "bold"
   },
   hotelTitle: {
-    color: "black"
+    color: colors.black
   },
   name: {
     fontSize: 16,
-    fontWeight: "600"
+    fontWeight: "bold"
   },
   date: {
     flexDirection: "row"
@@ -52,7 +53,7 @@ export const ReservationItem = ({
       right={[
         {
           text: "Delete",
-          backgroundColor: "red",
+          backgroundColor: colors.red,
           onPress: () => onDeleteItem(id)
         }
       ]}

@@ -5,6 +5,7 @@ import moment from "moment";
 
 import { DateRange } from "./date-range";
 import { ReservationDateRangeType } from "../types";
+import { colors } from "../styles";
 
 type Props = {
   endDay: string;
@@ -37,14 +38,14 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     paddingTop: 5,
     borderBottomWidth: 1,
-    borderColor: "#eee",
+    borderColor: colors.white,
     height: 350
   },
   text: {
     textAlign: "center",
-    borderColor: "#bbb",
+    borderColor: colors.gray,
     padding: 10,
-    backgroundColor: "#eee"
+    backgroundColor: colors.white
   },
   container: {
     flex: 1
@@ -68,8 +69,8 @@ export class Calendar extends Component<Props, State> {
     this.onDayPress = this.onDayPress.bind(this);
   }
 
-  selectedColor = "#00bfff";
-  textColor = "white";
+  selectedColor = colors.lightSkyBlue;
+  textColor = colors.white;
 
   static getRangeOfDates(start: string, end: string): [string?] {
     const startMoment = moment(start);

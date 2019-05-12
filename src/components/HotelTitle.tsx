@@ -1,6 +1,8 @@
 import React from "react";
 import { StyleSheet, Text } from "react-native";
 
+import { colors } from "../styles";
+
 type Props = {
   style?: object;
   title: string;
@@ -8,9 +10,9 @@ type Props = {
 
 const styles = StyleSheet.create({
   title: {
-    color: "white",
-    fontSize: 18,
-    fontWeight: "700",
+    color: colors.white,
+    fontSize: 16,
+    fontWeight: "bold",
     textAlign: "center"
   }
 });

@@ -12,6 +12,7 @@ import { NavigationScreenProp } from "react-navigation";
 
 import { withUserListQuery } from "../../apollo/client-state/userList";
 import { withUserMutation } from "../../apollo/client-state/user";
+import { colors } from "../../styles";
 
 type Props = {
   navigation: NavigationScreenProp<any, any>;
@@ -30,8 +31,8 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   headerText: {
-    fontSize: 24,
-    fontWeight: "500",
+    fontSize: 20,
+    fontWeight: "bold",
     marginBottom: 20
   },
   actionText: {
@@ -41,7 +42,7 @@ const styles = StyleSheet.create({
     height: "70%"
   },
   itemSeparator: {
-    backgroundColor: "black",
+    backgroundColor: colors.black,
     height: 1
   },
   item: {
@@ -69,7 +70,7 @@ export const SignInModal = ({
       </View>
       <FlatList
         style={styles.list}
-        data={userList} 
+        data={userList}
         keyExtractor={({ name }) => name}
         renderItem={({ item: { name } }) => (
           <TouchableOpacity

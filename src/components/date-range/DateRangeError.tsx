@@ -1,6 +1,8 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
+import { colors } from "../../styles";
+
 type Props = {
   startDay: string | null;
   endDay: string | null;
@@ -9,15 +11,15 @@ type Props = {
 const styles = StyleSheet.create({
   Container: {
     alignItems: "center",
-    borderColor: "lightgray",
+    borderColor: colors.gray,
     borderWidth: 1,
     borderRadius: 10,
     padding: 10
   },
   text: {
-    color: "dodgerblue",
+    color: colors.dogerBlue,
     fontSize: 20,
-    fontWeight: "600"
+    fontWeight: "bold"
   },
   messageContainer: {
     flexDirection: "row"

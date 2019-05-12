@@ -23,8 +23,8 @@ const styles = StyleSheet.create({
     flexDirection: "row"
   },
   dashText: {
-    fontSize: 40,
-    fontWeight: "600"
+    fontSize: 50,
+    fontWeight: "bold"
   },
   dateContainerLeft: {
     justifyContent: "flex-end"

@@ -5,6 +5,7 @@ import { NavigationScreenProp } from "react-navigation";
 
 import { withUserMutation } from "../../apollo/client-state/user";
 import { withAddUserMutation } from "../../apollo/client-state/userList";
+import { colors } from "../../styles";
 
 type Props = {
   navigation: NavigationScreenProp<any, any>;
@@ -25,7 +26,7 @@ const styles = StyleSheet.create({
   nameInput: {
     height: 40,
     width: 200,
-    borderColor: "gray",
+    borderColor: colors.gray,
     borderWidth: 1,
     borderRadius: 5,
     margin: 10

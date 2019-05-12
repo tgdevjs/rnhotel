@@ -10,6 +10,7 @@ import {
 } from "../../apollo/client-state/search";
 import { withUserQuery } from "../../apollo/client-state/user";
 import { UserType } from "../../types";
+import { colors } from "../../styles";
 
 type Props = {
   endDay: string;
@@ -46,7 +47,7 @@ const styles = StyleSheet.create({
   },
   instructions: {
     textAlign: "center",
-    color: "#333333",
+    color: colors.black,
     marginBottom: 5
   },
   buttonContainer: {

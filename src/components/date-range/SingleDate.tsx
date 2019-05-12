@@ -11,7 +11,7 @@ type Props = {
 const styles = StyleSheet.create({
   dateText: {
     fontSize: 50,
-    fontWeight: "600"
+    fontWeight: "bold"
   },
   dateContainer: {
     flex: 1,

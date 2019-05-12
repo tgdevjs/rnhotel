@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
   },
   actionText: {
     fontSize: 20,
-    fontWeight: "600"
+    fontWeight: "bold"
   },
   valueText: {
     fontSize: 20

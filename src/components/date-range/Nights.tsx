@@ -2,6 +2,8 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import Icons from "react-native-vector-icons/MaterialCommunityIcons";
 
+import { colors } from "../../styles";
+
 type Props = {
   nightsTotal: number;
 };
@@ -11,7 +13,7 @@ const styles = {
     margin: 2
   },
   nightsContainer: {
-    backgroundColor: "gray",
+    backgroundColor: colors.darkGray,
     borderRadius: 5,
     flexDirection: "row",
     alignItems: "center",
@@ -20,7 +22,7 @@ const styles = {
     marginHorizontal: 10
   },
   nightsText: {
-    color: "white"
+    color: colors.white
   }
 };
 
@@ -33,7 +35,7 @@ export const Nights = ({ nightsTotal }: Props) => {
         name={"power-sleep"}
         size={14}
         fontWeight="800"
-        color="white"
+        color={colors.white}
       />
       <Text style={styles.nightsText}>
         {nightsTotal} {nightsText}

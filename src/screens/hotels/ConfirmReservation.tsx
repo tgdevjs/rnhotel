@@ -21,6 +21,7 @@ import {
 } from "../../apollo/queries";
 import { getReservationsQueryVariables } from "../../utils";
 import { UserType } from "../../types";
+import { colors } from "../../styles";
 
 type Props = {
   createReservation: () => void;
@@ -68,7 +69,7 @@ const styles = StyleSheet.create({
   },
   valueText: {
     fontSize: 20,
-    fontWeight: "600"
+    fontWeight: "bold"
   }
 });
 
@@ -170,7 +171,7 @@ export class ConfirmReservation extends React.Component<Props, State> {
     return (
       <View style={styles.container}>
         <LinearGradient
-          colors={["#192f6a00", "#3b599888"]}
+          colors={[colors.lightBlue, colors.lightSkyBlue]}
           style={styles.header}
         >
           <DateRange startDay={startDay} endDay={endDay} />
