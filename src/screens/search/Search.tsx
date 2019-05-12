@@ -20,10 +20,15 @@ type Props = {
 };
 const styles = StyleSheet.create({
   container: {
-    alignItems: "flex-start",
+    alignItems: "center",
     flex: 1
   },
+  signInSection: {
+    flexDirection: "row"
+  },
   signInContainer: {
+    flex: 1,
+    alignItems: "flex-start",
     margin: 20
   },
   userText: {
@@ -69,12 +74,14 @@ export class Search extends React.Component<Props> {
 
     return (
       <View style={styles.container}>
-        <View style={styles.signInContainer}>
-          {name ? (
-            <Text style={styles.userText}>Hi, {name} </Text>
-          ) : (
-            <SignInButton onPress={() => navigate("SignIn")} />
-          )}
+        <View style={styles.signInSection}>
+          <View style={styles.signInContainer}>
+            {name ? (
+              <Text style={styles.userText}>Hi, {name} </Text>
+            ) : (
+              <SignInButton onPress={() => navigate("SignIn")} />
+            )}
+          </View>
         </View>
         <View style={styles.main}>
           <TouchableOpacity

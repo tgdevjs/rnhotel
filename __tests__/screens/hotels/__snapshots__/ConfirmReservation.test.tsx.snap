@@ -36,13 +36,7 @@ exports[`ConfirmReservation renders default 1`] = `
       }
     }
   >
-    <DateRange
-      dateTextStyle={
-        Object {
-          "paddingBottom": 30,
-        }
-      }
-    />
+    <DateRange />
     <HotelTitle
       style={
         Object {

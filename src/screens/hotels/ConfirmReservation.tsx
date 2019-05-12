@@ -44,9 +44,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     height: 200
   },
-  dateRange: {
-    paddingBottom: 30
-  },
   hotelTitle: {
     color: "black"
   },
@@ -176,11 +173,7 @@ export class ConfirmReservation extends React.Component<Props, State> {
           colors={["#192f6a00", "#3b599888"]}
           style={styles.header}
         >
-          <DateRange
-            dateTextStyle={styles.dateRange}
-            startDay={startDay}
-            endDay={endDay}
-          />
+          <DateRange startDay={startDay} endDay={endDay} />
           <HotelTitle style={styles.hotelTitle} title={hotelName} />
           <Text>{this.id}</Text>
         </LinearGradient>

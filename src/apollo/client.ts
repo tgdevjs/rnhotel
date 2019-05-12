@@ -26,12 +26,12 @@ export const restoreCache = async () => {
   const cacheVersionKey = "cacheVersion";
   const cacheVersion = await AsyncStorage.getItem(cacheVersionKey);
 
-  // if (version === cacheVersion) {
-  //   await persistor.restore();
-  // } else {
-  //   await persistor.purge();
-  //   await AsyncStorage.setItem(cacheVersionKey, version);
-  // }
+  if (version === cacheVersion) {
+    await persistor.restore();
+  } else {
+    await persistor.purge();
+    await AsyncStorage.setItem(cacheVersionKey, version);
+  }
 
   // reset cache for startDay in search if it is before current date
   const {

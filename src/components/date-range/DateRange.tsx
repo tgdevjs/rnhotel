@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import moment from "moment";
 
-import { SingleDate } from ".";
+import { Nights, SingleDate } from ".";
 
 type Props = {
   containerStyle?: object;
@@ -28,6 +28,9 @@ const styles = StyleSheet.create({
   },
   dateContainerLeft: {
     justifyContent: "flex-end"
+  },
+  nightsColumn: {
+    justifyContent: "center"
   }
 });
 
@@ -47,15 +50,22 @@ export const DateRange = ({
           date={startDay}
           textStyle={dateTextStyle}
         />
-        <Text style={styles.dashText}> - </Text>
         {!endDay ? (
-          <View style={styles.datePlaceholder} />
+          <>
+            <Text style={styles.dashText}> - </Text>
+            <View style={styles.datePlaceholder} />
+          </>
         ) : (
-          <SingleDate
-            containerStyle={null}
-            date={endDay}
-            textStyle={dateTextStyle}
-          />
+          <>
+            <View style={styles.nightsColumn}>
+              <Nights nightsTotal={moment(endDay).diff(startMoment, "days")} />
+            </View>
+            <SingleDate
+              containerStyle={null}
+              date={endDay}
+              textStyle={dateTextStyle}
+            />
+          </>
         )}
       </View>
     </View>

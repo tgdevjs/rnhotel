@@ -6,11 +6,11 @@
  * @flow
  */
 
-import React from 'react';
-import { ApolloProvider } from 'react-apollo';
+import React from "react";
+import { ApolloProvider } from "react-apollo";
 
-import { client, restoreCache } from './apollo';
-import Navigation from './Navigation';
+import { client, restoreCache } from "./apollo";
+import Navigation from "./Navigation";
 
 export default class App extends React.Component {
   state = { isSetupComplete: false };
