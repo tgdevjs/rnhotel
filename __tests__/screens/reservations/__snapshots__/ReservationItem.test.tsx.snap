@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReservationItem renders default 1`] = `
+<Swipeout
+  autoClose={true}
+  backgroundColor="transparent"
+  disabled={false}
+  right={
+    Array [
+      Object {
+        "backgroundColor": "red",
+        "onPress": [Function],
+        "text": "Delete",
+      },
+    ]
+  }
+  rowID={-1}
+  sectionID={-1}
+  sensitivity={50}
+>
+  <TouchableOpacity
+    activeOpacity={0.2}
+    onPress={[Function]}
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "borderColor": "lightgray",
+          "borderRadius": 10,
+          "borderWidth": 1,
+          "height": 160,
+          "justifyContent": "center",
+          "marginHorizontal": 10,
+        }
+      }
+    >
+      <DateRange
+        containerStyle={
+          Object {
+            "paddingBottom": 10,
+          }
+        }
+        dateTextStyle={
+          Object {
+            "fontSize": 30,
+            "fontWeight": "600",
+          }
+        }
+        endDay="2019-06-03"
+        startDay="2019-06-01"
+      />
+      <HotelTitle
+        style={
+          Object {
+            "color": "black",
+          }
+        }
+        title="hotelName"
+      />
+      <Text>
+        1
+      </Text>
+    </View>
+  </TouchableOpacity>
+</Swipeout>
+`;

@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`JoinModal renders default 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <TextInput
+    allowFontScaling={true}
+    onChangeText={[Function]}
+    onSubmitEditing={[Function]}
+    placeholder="name"
+    rejectResponderTermination={true}
+    style={
+      Object {
+        "borderColor": "gray",
+        "borderRadius": 5,
+        "borderWidth": 1,
+        "height": 40,
+        "margin": 10,
+        "width": 200,
+      }
+    }
+    underlineColorAndroid="transparent"
+    value=""
+  />
+  <Button
+    onPress={[Function]}
+    title="Join"
+  />
+  <Button
+    onPress={[Function]}
+    title="Cancel"
+  />
+</View>
+`;

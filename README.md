@@ -54,3 +54,10 @@ Apollo Client manages local state of the `recentSearch`, `user`, and `userList` 
 Local state is split into different files for easier organization.
 
 ![](./resources/client-state-folder-structure.png)
+
+# Known issues
+
+1. `Slider deprecation warning when running tests that contain navigation.goBack()`  
+   Occurs inside JoinModal.test.tsx and SignInModal.test.tsx  
+   Warning: Slider has been extracted from react-native core and will be removed in a future release.  
+   https://github.com/kmagiera/react-native-gesture-handler/issues/535#issuecomment-475554520

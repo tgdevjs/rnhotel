@@ -69,7 +69,7 @@ export const SignInModal = ({
       </View>
       <FlatList
         style={styles.list}
-        data={userList}
+        data={userList} 
         keyExtractor={({ name }) => name}
         renderItem={({ item: { name } }) => (
           <TouchableOpacity

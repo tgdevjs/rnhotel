@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignInModal renders default 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "height": 160,
+        "justifyContent": "center",
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "fontSize": 24,
+          "fontWeight": "500",
+          "marginBottom": 20,
+        }
+      }
+    >
+      SignIn
+    </Text>
+    <Text
+      style={
+        Object {
+          "fontSize": 16,
+        }
+      }
+    >
+      Select a user account.
+    </Text>
+  </View>
+  <FlatList
+    ItemSeparatorComponent={[Function]}
+    disableVirtualization={false}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onEndReachedThreshold={2}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    style={
+      Object {
+        "height": "70%",
+      }
+    }
+    updateCellsBatchingPeriod={50}
+    windowSize={21}
+  />
+  <Button
+    onPress={[Function]}
+    title="Cancel"
+  />
+  <View
+    style={
+      Object {
+        "height": 60,
+      }
+    }
+  />
+</View>
+`;

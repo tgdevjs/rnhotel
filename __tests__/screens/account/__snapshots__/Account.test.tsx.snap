@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Account renders default 1`] = `
+<Apollo(AccountMenu)
+  onPress={[Function]}
+  user={
+    Object {
+      "name": "hello",
+    }
+  }
+/>
+`;

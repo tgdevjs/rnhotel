@@ -57,6 +57,8 @@ export class Calendar extends Component<Props, State> {
 
     const { endDay, startDay } = this.props;
 
+    console.log("props: ", props);
+
     this.state = {
       currentDate: moment().format(moment.HTML5_FMT.DATE),
       selectedDates: { endDay, startDay },
@@ -93,6 +95,7 @@ export class Calendar extends Component<Props, State> {
       }),
       {}
     );
+    console.log("markedDates: ", { markedDates, dates });
     markedDates[start].startingDay = true;
     markedDates[end].endingDay = true;
 

@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DateRangeError renders default 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "borderColor": "lightgray",
+      "borderRadius": 10,
+      "borderWidth": 1,
+      "padding": 10,
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "color": "dodgerblue",
+        "fontSize": 20,
+        "fontWeight": "600",
+      }
+    }
+  >
+    Invalid dates
+  </Text>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+      }
+    }
+  >
+    <Text />
+    <Text>
+      to
+    </Text>
+    <Text />
+  </View>
+</View>
+`;

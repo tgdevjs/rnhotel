@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DateRange renders default 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+      }
+    }
+  >
+    <SingleDate
+      containerStyle={
+        Object {
+          "justifyContent": "flex-end",
+        }
+      }
+      textStyle={null}
+    />
+    <Text
+      style={
+        Object {
+          "fontSize": 40,
+          "fontWeight": "600",
+        }
+      }
+    >
+       - 
+    </Text>
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "flexDirection": "row",
+        }
+      }
+    />
+  </View>
+</View>
+`;

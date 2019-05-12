@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AccountGuest renders default 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <View>
+    <Icon
+      allowFontScaling={false}
+      color="blue"
+      name="person"
+      size={80}
+    />
+    <View
+      style={
+        Object {
+          "marginTop": 80,
+        }
+      }
+    >
+      <SignInButton
+        onPress={[Function]}
+      />
+      <View
+        style={
+          Object {
+            "height": 20,
+          }
+        }
+      />
+      <Button
+        onPress={[Function]}
+        title="Join"
+      />
+    </View>
+  </View>
+</View>
+`;

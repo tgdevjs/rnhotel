@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchCalendar renders default 1`] = `
+<Calendar
+  endDay="2019-06-03"
+  onSetDates={[Function]}
+  startDay="2019-06-01"
+/>
+`;

@@ -1,6 +1,5 @@
 import React from "react";
 import { Button, StyleSheet, View } from "react-native";
-import PropTypes from "prop-types";
 import Ionicons from "react-native-vector-icons/MaterialIcons";
 
 import { SignInButton } from "../../components";

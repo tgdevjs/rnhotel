@@ -9,7 +9,6 @@ import {
   withSearchMutation
 } from "../../apollo/client-state/search";
 import { withUserQuery } from "../../apollo/client-state/user";
-
 import { UserType } from "../../types";
 
 type Props = {

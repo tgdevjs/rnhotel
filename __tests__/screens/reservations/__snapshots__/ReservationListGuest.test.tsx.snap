@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReservationListGuest renders default 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "margin": 20,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "fontSize": 20,
+            "fontWeight": "600",
+          }
+        }
+      >
+        Sign in
+      </Text>
+      <Text
+        style={
+          Object {
+            "fontSize": 20,
+          }
+        }
+      >
+        to see your reservations
+      </Text>
+    </View>
+    <SignInButton />
+  </View>
+</View>
+`;

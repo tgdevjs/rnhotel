@@ -1,0 +1,108 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConfirmReservation renders default 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+      "justifyContent": "space-between",
+    }
+  }
+>
+  <LinearGradient
+    colors={
+      Array [
+        "#192f6a00",
+        "#3b599888",
+      ]
+    }
+    end={
+      Object {
+        "x": 0.5,
+        "y": 1,
+      }
+    }
+    start={
+      Object {
+        "x": 0.5,
+        "y": 0,
+      }
+    }
+    style={
+      Object {
+        "alignItems": "center",
+        "height": 200,
+        "justifyContent": "center",
+      }
+    }
+  >
+    <DateRange
+      dateTextStyle={
+        Object {
+          "paddingBottom": 30,
+        }
+      }
+    />
+    <HotelTitle
+      style={
+        Object {
+          "color": "black",
+        }
+      }
+      title="hotelName"
+    />
+    <Text />
+  </LinearGradient>
+  <View
+    style={
+      Object {
+        "flex": 1,
+        "justifyContent": "center",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "justifyContent": "center",
+          "marginBottom": 40,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "margin": 20,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "fontSize": 16,
+            }
+          }
+        >
+          User Name:
+        </Text>
+        <Text
+          style={
+            Object {
+              "fontSize": 20,
+              "fontWeight": "600",
+            }
+          }
+        >
+          userName
+        </Text>
+      </View>
+      <Button
+        onPress={[Function]}
+        title="Book Now"
+      />
+    </View>
+  </View>
+</View>
+`;

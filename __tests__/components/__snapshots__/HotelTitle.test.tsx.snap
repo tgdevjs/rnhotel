@@ -10,7 +10,7 @@ exports[`HelloTitle renders default 1`] = `
         "fontWeight": "700",
         "textAlign": "center",
       },
-      null,
+      undefined,
     ]
   }
 >

@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignInButton renders default 1`] = `
+<TouchableOpacity
+  activeOpacity={0.2}
+  onPress={[Function]}
+  style={
+    Object {
+      "backgroundColor": "dodgerblue",
+      "borderRadius": 5,
+      "padding": 10,
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "color": "white",
+        "fontWeight": "600",
+        "textAlign": "center",
+      }
+    }
+  >
+    Sign In
+  </Text>
+</TouchableOpacity>
+`;

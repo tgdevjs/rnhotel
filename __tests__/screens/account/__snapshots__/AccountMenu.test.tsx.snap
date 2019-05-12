@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AccountMenu renders default 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "justifyContent": "center",
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "fontSize": 16,
+        }
+      }
+    >
+      User Name:
+    </Text>
+    <Text
+      style={
+        Object {
+          "fontSize": 20,
+          "fontWeight": "600",
+        }
+      }
+    >
+      hello
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "justifyContent": "center",
+        "marginBottom": 40,
+      }
+    }
+  >
+    <Button
+      onPress={[Function]}
+      title="SignOut"
+    />
+  </View>
+</View>
+`;

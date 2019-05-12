@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Reservations renders default 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "padding": 30,
+      }
+    }
+  >
+    <SegmentedControlTab
+      accessibilityLabels={Array []}
+      accessible={true}
+      activeTabBadgeContainerStyle={Object {}}
+      activeTabBadgeStyle={Object {}}
+      activeTabOpacity={1}
+      activeTabStyle={Object {}}
+      activeTabTextStyle={Object {}}
+      allowFontScaling={true}
+      badges={
+        Array [
+          "",
+          "",
+          "",
+        ]
+      }
+      borderRadius={5}
+      enabled={true}
+      multiple={false}
+      onTabPress={[Function]}
+      selectedIndex={1}
+      selectedIndices={
+        Array [
+          0,
+        ]
+      }
+      tabBadgeContainerStyle={Object {}}
+      tabBadgeStyle={Object {}}
+      tabStyle={Object {}}
+      tabTextStyle={Object {}}
+      tabsContainerDisableStyle={
+        Object {
+          "opacity": 0.6,
+        }
+      }
+      tabsContainerStyle={Object {}}
+      textNumberOfLines={1}
+      values={
+        Array [
+          "Past",
+          "Upcoming",
+        ]
+      }
+    />
+  </View>
+  <ReservationList
+    name="userName"
+    orderBy="createdAt_DESC"
+    timeRangeKey="arrivalDate_gte"
+  />
+</View>
+`;

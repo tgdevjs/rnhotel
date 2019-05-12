@@ -1,0 +1,203 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Hotels renders default 1`] = `
+<FlatList
+  ItemSeparatorComponent={[Function]}
+  data={
+    Array [
+      Object {
+        "imageSrc": "http://lorempixel.com/320/280/city",
+        "key": "0",
+        "name": "hotel-0",
+        "price": "$120",
+      },
+      Object {
+        "imageSrc": "http://lorempixel.com/320/280/city",
+        "key": "1",
+        "name": "hotel-1",
+        "price": "$120",
+      },
+      Object {
+        "imageSrc": "http://lorempixel.com/320/280/city",
+        "key": "2",
+        "name": "hotel-2",
+        "price": "$120",
+      },
+      Object {
+        "imageSrc": "http://lorempixel.com/320/280/city",
+        "key": "3",
+        "name": "hotel-3",
+        "price": "$120",
+      },
+      Object {
+        "imageSrc": "http://lorempixel.com/320/280/city",
+        "key": "4",
+        "name": "hotel-4",
+        "price": "$120",
+      },
+      Object {
+        "imageSrc": "http://lorempixel.com/320/280/city",
+        "key": "5",
+        "name": "hotel-5",
+        "price": "$120",
+      },
+      Object {
+        "imageSrc": "http://lorempixel.com/320/280/city",
+        "key": "6",
+        "name": "hotel-6",
+        "price": "$120",
+      },
+      Object {
+        "imageSrc": "http://lorempixel.com/320/280/city",
+        "key": "7",
+        "name": "hotel-7",
+        "price": "$120",
+      },
+      Object {
+        "imageSrc": "http://lorempixel.com/320/280/city",
+        "key": "8",
+        "name": "hotel-8",
+        "price": "$120",
+      },
+      Object {
+        "imageSrc": "http://lorempixel.com/320/280/city",
+        "key": "9",
+        "name": "hotel-9",
+        "price": "$120",
+      },
+      Object {
+        "imageSrc": "http://lorempixel.com/320/280/city",
+        "key": "10",
+        "name": "hotel-10",
+        "price": "$120",
+      },
+      Object {
+        "imageSrc": "http://lorempixel.com/320/280/city",
+        "key": "11",
+        "name": "hotel-11",
+        "price": "$120",
+      },
+      Object {
+        "imageSrc": "http://lorempixel.com/320/280/city",
+        "key": "12",
+        "name": "hotel-12",
+        "price": "$120",
+      },
+      Object {
+        "imageSrc": "http://lorempixel.com/320/280/city",
+        "key": "13",
+        "name": "hotel-13",
+        "price": "$120",
+      },
+      Object {
+        "imageSrc": "http://lorempixel.com/320/280/city",
+        "key": "14",
+        "name": "hotel-14",
+        "price": "$120",
+      },
+      Object {
+        "imageSrc": "http://lorempixel.com/320/280/city",
+        "key": "15",
+        "name": "hotel-15",
+        "price": "$120",
+      },
+      Object {
+        "imageSrc": "http://lorempixel.com/320/280/city",
+        "key": "16",
+        "name": "hotel-16",
+        "price": "$120",
+      },
+      Object {
+        "imageSrc": "http://lorempixel.com/320/280/city",
+        "key": "17",
+        "name": "hotel-17",
+        "price": "$120",
+      },
+      Object {
+        "imageSrc": "http://lorempixel.com/320/280/city",
+        "key": "18",
+        "name": "hotel-18",
+        "price": "$120",
+      },
+      Object {
+        "imageSrc": "http://lorempixel.com/320/280/city",
+        "key": "19",
+        "name": "hotel-19",
+        "price": "$120",
+      },
+      Object {
+        "imageSrc": "http://lorempixel.com/320/280/city",
+        "key": "20",
+        "name": "hotel-20",
+        "price": "$120",
+      },
+      Object {
+        "imageSrc": "http://lorempixel.com/320/280/city",
+        "key": "21",
+        "name": "hotel-21",
+        "price": "$120",
+      },
+      Object {
+        "imageSrc": "http://lorempixel.com/320/280/city",
+        "key": "22",
+        "name": "hotel-22",
+        "price": "$120",
+      },
+      Object {
+        "imageSrc": "http://lorempixel.com/320/280/city",
+        "key": "23",
+        "name": "hotel-23",
+        "price": "$120",
+      },
+      Object {
+        "imageSrc": "http://lorempixel.com/320/280/city",
+        "key": "24",
+        "name": "hotel-24",
+        "price": "$120",
+      },
+      Object {
+        "imageSrc": "http://lorempixel.com/320/280/city",
+        "key": "25",
+        "name": "hotel-25",
+        "price": "$120",
+      },
+      Object {
+        "imageSrc": "http://lorempixel.com/320/280/city",
+        "key": "26",
+        "name": "hotel-26",
+        "price": "$120",
+      },
+      Object {
+        "imageSrc": "http://lorempixel.com/320/280/city",
+        "key": "27",
+        "name": "hotel-27",
+        "price": "$120",
+      },
+      Object {
+        "imageSrc": "http://lorempixel.com/320/280/city",
+        "key": "28",
+        "name": "hotel-28",
+        "price": "$120",
+      },
+      Object {
+        "imageSrc": "http://lorempixel.com/320/280/city",
+        "key": "29",
+        "name": "hotel-29",
+        "price": "$120",
+      },
+    ]
+  }
+  disableVirtualization={false}
+  horizontal={false}
+  initialNumToRender={10}
+  keyExtractor={[Function]}
+  maxToRenderPerBatch={10}
+  numColumns={1}
+  onEndReachedThreshold={2}
+  removeClippedSubviews={false}
+  renderItem={[Function]}
+  scrollEventThrottle={50}
+  updateCellsBatchingPeriod={50}
+  windowSize={21}
+/>
+`;
