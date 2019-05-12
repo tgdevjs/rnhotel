@@ -1,6 +1,6 @@
 import React from "react";
 import { Query, Mutation } from "react-apollo";
-import { FlatList, StyleSheet, View } from "react-native";
+import { FlatList, StyleSheet, Text, View } from "react-native";
 
 import { ReservationItem } from ".";
 import { ReservationType } from "../../types";
@@ -9,6 +9,7 @@ import {
   deleteReservationMutation
 } from "../../apollo/queries";
 import { getReservationsQueryVariables } from "../../utils";
+import { fonts } from "../../styles";
 
 type Props = {
   name: string;
@@ -22,7 +23,14 @@ const styles = StyleSheet.create({
   },
   itemSeparator: {
     height: 8
-  }
+  },
+  listEmpty: {
+    alignItems: "center",
+    flex: 1,
+    height: 400,
+    justifyContent: "center"
+  },
+  actionText: fonts.H3
 });
 
 export const ReservationList = ({ name, orderBy, timeRangeKey }: Props) => {
@@ -31,6 +39,7 @@ export const ReservationList = ({ name, orderBy, timeRangeKey }: Props) => {
     orderBy,
     timeRangeKey
   });
+  const timeRange = timeRangeKey === "arrivalDate_gte" ? "upcoming" : "past";
 
   return (
     <Mutation
@@ -65,6 +74,13 @@ export const ReservationList = ({ name, orderBy, timeRangeKey }: Props) => {
                     <View style={styles.itemSeparator} />
                   )}
                   keyExtractor={(item: ReservationType) => item.id}
+                  ListEmptyComponent={
+                    <View style={styles.listEmpty}>
+                      <Text style={styles.actionText}>
+                        {`No ${timeRange} stays`}
+                      </Text>
+                    </View>
+                  }
                   renderItem={({ item }) => (
                     <ReservationItem
                       item={item}
