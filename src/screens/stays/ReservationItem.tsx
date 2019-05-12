@@ -5,7 +5,7 @@ import moment from "moment";
 
 import { DateRange, HotelTitle, DateRangeError } from "../../components";
 import { ReservationType } from "../../types";
-import { colors } from "../../styles";
+import { borderRadius, colors, fonts, spacing } from "../../styles";
 
 type Props = {
   item: ReservationType;
@@ -17,28 +17,22 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderColor: colors.gray,
     borderWidth: 1,
-    borderRadius: 10,
+    borderRadius: borderRadius.large,
     justifyContent: "center",
-    marginHorizontal: 10,
+    marginHorizontal: spacing,
     height: 160
   },
   textContainer: {
     paddingLeft: 42
   },
   dateRange: {
-    paddingBottom: 10
+    paddingBottom: spacing
   },
-  dateText: {
-    fontSize: 30,
-    fontWeight: "bold"
-  },
+  dateText: fonts.H2,
   hotelTitle: {
     color: colors.black
   },
-  name: {
-    fontSize: 16,
-    fontWeight: "bold"
-  },
+  name: fonts.Body,
   date: {
     flexDirection: "row"
   }

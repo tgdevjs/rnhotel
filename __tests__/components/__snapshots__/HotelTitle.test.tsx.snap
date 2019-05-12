@@ -5,9 +5,9 @@ exports[`HelloTitle renders default 1`] = `
   style={
     Array [
       Object {
-        "color": "white",
-        "fontSize": 18,
-        "fontWeight": "700",
+        "color": "#eee",
+        "fontSize": 20,
+        "fontWeight": "bold",
         "textAlign": "center",
       },
       undefined,

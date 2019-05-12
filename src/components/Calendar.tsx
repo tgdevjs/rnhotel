@@ -5,7 +5,7 @@ import moment from "moment";
 
 import { DateRange } from "./date-range";
 import { ReservationDateRangeType } from "../types";
-import { colors } from "../styles";
+import { colors, spacing } from "../styles";
 
 type Props = {
   endDay: string;
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
   text: {
     textAlign: "center",
     borderColor: colors.gray,
-    padding: 10,
+    padding: spacing,
     backgroundColor: colors.white
   },
   container: {

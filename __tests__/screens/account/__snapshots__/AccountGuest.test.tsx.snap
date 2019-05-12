@@ -13,7 +13,7 @@ exports[`AccountGuest renders default 1`] = `
   <View>
     <Icon
       allowFontScaling={false}
-      color="blue"
+      color="#1E90FF"
       name="person"
       size={80}
     />

@@ -29,6 +29,7 @@ exports[`Search renders default 1`] = `
         style={
           Object {
             "fontSize": 16,
+            "fontWeight": "400",
           }
         }
       >

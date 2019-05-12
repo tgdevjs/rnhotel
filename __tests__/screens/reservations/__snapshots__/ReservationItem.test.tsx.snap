@@ -8,7 +8,7 @@ exports[`ReservationItem renders default 1`] = `
   right={
     Array [
       Object {
-        "backgroundColor": "red",
+        "backgroundColor": "#FF0000",
         "onPress": [Function],
         "text": "Delete",
       },
@@ -26,7 +26,7 @@ exports[`ReservationItem renders default 1`] = `
       style={
         Object {
           "alignItems": "center",
-          "borderColor": "lightgray",
+          "borderColor": "#C3C3C3",
           "borderRadius": 10,
           "borderWidth": 1,
           "height": 160,
@@ -43,8 +43,8 @@ exports[`ReservationItem renders default 1`] = `
         }
         dateTextStyle={
           Object {
-            "fontSize": 30,
-            "fontWeight": "600",
+            "fontSize": 36,
+            "fontWeight": "bold",
           }
         }
         endDay="2019-06-03"
@@ -53,7 +53,7 @@ exports[`ReservationItem renders default 1`] = `
       <HotelTitle
         style={
           Object {
-            "color": "black",
+            "color": "#000",
           }
         }
         title="hotelName"

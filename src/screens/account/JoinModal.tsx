@@ -5,7 +5,7 @@ import { NavigationScreenProp } from "react-navigation";
 
 import { withUserMutation } from "../../apollo/client-state/user";
 import { withAddUserMutation } from "../../apollo/client-state/userList";
-import { colors } from "../../styles";
+import { borderRadius, colors, spacing } from "../../styles";
 
 type Props = {
   navigation: NavigationScreenProp<any, any>;
@@ -28,8 +28,9 @@ const styles = StyleSheet.create({
     width: 200,
     borderColor: colors.gray,
     borderWidth: 1,
-    borderRadius: 5,
-    margin: 10
+    borderRadius: borderRadius.small,
+    margin: spacing,
+    paddingHorizontal: spacing
   }
 });
 

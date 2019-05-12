@@ -12,8 +12,8 @@ exports[`ConfirmReservation renders default 1`] = `
   <LinearGradient
     colors={
       Array [
-        "#192f6a00",
-        "#3b599888",
+        "#add8e6",
+        "#87cefa",
       ]
     }
     end={
@@ -76,6 +76,7 @@ exports[`ConfirmReservation renders default 1`] = `
           style={
             Object {
               "fontSize": 16,
+              "fontWeight": "400",
             }
           }
         >
@@ -85,7 +86,7 @@ exports[`ConfirmReservation renders default 1`] = `
           style={
             Object {
               "fontSize": 20,
-              "fontWeight": "600",
+              "fontWeight": "bold",
             }
           }
         >

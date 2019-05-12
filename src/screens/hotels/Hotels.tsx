@@ -6,7 +6,7 @@ import LinearGradient from "react-native-linear-gradient";
 import { TouchableHighlight } from "react-native-gesture-handler";
 
 import { HotelTitle } from "../../components";
-import { colors } from "../../styles";
+import { colors, spacing } from "../../styles";
 
 type Props = {
   navigation: NavigationScreenProp<any, any>;
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
   },
   itemSeparator: {
     backgroundColor: "white",
-    height: 10
+    height: spacing
   }
 });
 
@@ -55,7 +55,7 @@ const renderIconRow = () => {
       key={`${v}`}
       name={v}
       size={25}
-      fontWeight="800"
+      fontWeight="bold"
       color="white"
     />
   ));

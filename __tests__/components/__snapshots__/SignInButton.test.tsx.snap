@@ -6,7 +6,7 @@ exports[`SignInButton renders default 1`] = `
   onPress={[Function]}
   style={
     Object {
-      "backgroundColor": "dodgerblue",
+      "backgroundColor": "#1E90FF",
       "borderRadius": 5,
       "padding": 10,
     }
@@ -15,8 +15,8 @@ exports[`SignInButton renders default 1`] = `
   <Text
     style={
       Object {
-        "color": "white",
-        "fontWeight": "600",
+        "color": "#eee",
+        "fontWeight": "bold",
         "textAlign": "center",
       }
     }

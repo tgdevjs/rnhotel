@@ -2,6 +2,7 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
 import { SignInButton } from "../../components";
+import { fonts } from "../../styles";
 
 type Props = {
   onSignIn: () => void;
@@ -20,13 +21,8 @@ const styles = StyleSheet.create({
     margin: 20,
     alignItems: "center"
   },
-  actionText: {
-    fontSize: 20,
-    fontWeight: "bold"
-  },
-  valueText: {
-    fontSize: 20
-  }
+  actionText: fonts.H3,
+  valueText: fonts.H3
 });
 
 export const ReservationListGuest = ({ onSignIn }: Props) => {

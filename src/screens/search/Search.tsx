@@ -10,7 +10,7 @@ import {
 } from "../../apollo/client-state/search";
 import { withUserQuery } from "../../apollo/client-state/user";
 import { UserType } from "../../types";
-import { colors } from "../../styles";
+import { colors, fonts, spacing } from "../../styles";
 
 type Props = {
   endDay: string;
@@ -32,18 +32,16 @@ const styles = StyleSheet.create({
     alignItems: "flex-start",
     margin: 20
   },
-  userText: {
-    fontSize: 16
-  },
+  userText: fonts.Body,
   main: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center"
   },
   welcome: {
-    fontSize: 20,
+    ...fonts.H3,
     textAlign: "center",
-    margin: 10
+    margin: spacing
   },
   instructions: {
     textAlign: "center",

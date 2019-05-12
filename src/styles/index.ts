@@ -14,41 +14,32 @@ export const colors = {
 export const spacing = 10;
 
 const fontWeights = {
-  regular: "regular",
-  bold: "bold"
+  bold: "bold",
+  regular: "400"
 };
 
-const typeSizes = [80, 48, 36, 24, 20, 16];
+export const borderRadius = {
+  small: 5,
+  large: 10
+};
+
+const typeSizes = [48, 36, 20, 16];
 
 export const fonts = {
   H1: {
-    color: colors.black,
-    fontSize: typeSizes[2],
-    fontWeight: fontWeights.bold,
-    lineHeight: 48
+    fontSize: typeSizes[0],
+    fontWeight: fontWeights.bold
   },
   H2: {
-    color: colors.black,
-    fontSize: typeSizes[3],
-    fontWeight: fontWeights.bold,
-    lineHeight: 36
+    fontSize: typeSizes[1],
+    fontWeight: fontWeights.bold
   },
   H3: {
-    color: colors.black,
-    fontSize: typeSizes[4],
-    fontWeight: fontWeights.regular,
-    lineHeight: 24
+    fontSize: typeSizes[2],
+    fontWeight: fontWeights.bold
   },
   Body: {
-    color: colors.black,
-    fontSize: typeSizes[5],
-    fontWeight: fontWeights.regular,
-    lineHeight: 24
+    fontSize: typeSizes[3],
+    fontWeight: fontWeights.regular
   }
-};
-
-export default {
-  colors,
-  fonts,
-  spacing
 };

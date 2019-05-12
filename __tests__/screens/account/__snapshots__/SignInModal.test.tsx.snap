@@ -21,8 +21,8 @@ exports[`SignInModal renders default 1`] = `
     <Text
       style={
         Object {
-          "fontSize": 24,
-          "fontWeight": "500",
+          "fontSize": 20,
+          "fontWeight": "bold",
           "marginBottom": 20,
         }
       }
@@ -33,6 +33,7 @@ exports[`SignInModal renders default 1`] = `
       style={
         Object {
           "fontSize": 16,
+          "fontWeight": "400",
         }
       }
     >

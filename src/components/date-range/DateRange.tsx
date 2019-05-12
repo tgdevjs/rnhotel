@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from "react-native";
 import moment from "moment";
 
 import { Nights, SingleDate } from ".";
+import { fonts } from "../../styles";
 
 type Props = {
   containerStyle?: object;
@@ -22,10 +23,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "row"
   },
-  dashText: {
-    fontSize: 50,
-    fontWeight: "bold"
-  },
+  dashText: fonts.H1,
   dateContainerLeft: {
     justifyContent: "flex-end"
   },

@@ -3,6 +3,7 @@ import { Button, StyleSheet, Text, View } from "react-native";
 
 import { withUserMutation } from "../../apollo/client-state/user";
 import { UserType } from "../../types";
+import { fonts } from "../../styles";
 
 type Props = {
   setUser: (user: UserType) => void;
@@ -20,13 +21,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center"
   },
-  labelText: {
-    fontSize: 16
-  },
-  valueText: {
-    fontSize: 20,
-    fontWeight: "bold"
-  },
+  labelText: fonts.Body,
+  valueText: fonts.H3,
   buttonSection: {
     marginBottom: 40,
     justifyContent: "center",

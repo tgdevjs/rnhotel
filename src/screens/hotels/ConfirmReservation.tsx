@@ -21,7 +21,7 @@ import {
 } from "../../apollo/queries";
 import { getReservationsQueryVariables } from "../../utils";
 import { UserType } from "../../types";
-import { colors } from "../../styles";
+import { colors, fonts } from "../../styles";
 
 type Props = {
   createReservation: () => void;
@@ -61,16 +61,9 @@ const styles = StyleSheet.create({
     margin: 20,
     alignItems: "center"
   },
-  actionText: {
-    fontSize: 16
-  },
-  labelText: {
-    fontSize: 16
-  },
-  valueText: {
-    fontSize: 20,
-    fontWeight: "bold"
-  }
+  actionText: fonts.Body,
+  labelText: fonts.Body,
+  valueText: fonts.H3
 });
 
 export class ConfirmReservation extends React.Component<Props, State> {

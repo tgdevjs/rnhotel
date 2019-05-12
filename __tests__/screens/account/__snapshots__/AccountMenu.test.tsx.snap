@@ -23,6 +23,7 @@ exports[`AccountMenu renders default 1`] = `
       style={
         Object {
           "fontSize": 16,
+          "fontWeight": "400",
         }
       }
     >
@@ -32,7 +33,7 @@ exports[`AccountMenu renders default 1`] = `
       style={
         Object {
           "fontSize": 20,
-          "fontWeight": "600",
+          "fontWeight": "bold",
         }
       }
     >

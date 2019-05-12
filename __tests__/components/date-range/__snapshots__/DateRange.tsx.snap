@@ -29,8 +29,8 @@ exports[`DateRange renders default 1`] = `
     <Text
       style={
         Object {
-          "fontSize": 40,
-          "fontWeight": "600",
+          "fontSize": 48,
+          "fontWeight": "bold",
         }
       }
     >

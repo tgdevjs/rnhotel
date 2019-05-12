@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import moment from "moment";
+import { fonts } from "../../styles";
 
 type Props = {
   containerStyle: object | null;
@@ -9,13 +10,13 @@ type Props = {
 };
 
 const styles = StyleSheet.create({
-  dateText: {
-    fontSize: 50,
-    fontWeight: "bold"
-  },
-  dateContainer: {
+  container: {
     flex: 1,
     flexDirection: "row"
+  },
+  dateText: fonts.H1,
+  dateContainer: {
+    justifyContent: "center"
   },
   dayContainer: {
     justifyContent: "center"
@@ -26,7 +27,7 @@ export const SingleDate = ({ containerStyle, date, textStyle }: Props) => {
   const dateMoment = moment(date);
 
   return (
-    <View style={[styles.dateContainer, containerStyle]}>
+    <View style={[styles.container, containerStyle]}>
       <Text style={[styles.dateText, textStyle]}>
         {dateMoment.format("DD")}
       </Text>

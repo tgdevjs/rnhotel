@@ -29,7 +29,7 @@ exports[`ReservationListGuest renders default 1`] = `
         style={
           Object {
             "fontSize": 20,
-            "fontWeight": "600",
+            "fontWeight": "bold",
           }
         }
       >
@@ -39,6 +39,7 @@ exports[`ReservationListGuest renders default 1`] = `
         style={
           Object {
             "fontSize": 20,
+            "fontWeight": "bold",
           }
         }
       >

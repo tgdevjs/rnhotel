@@ -12,7 +12,7 @@ import { NavigationScreenProp } from "react-navigation";
 
 import { withUserListQuery } from "../../apollo/client-state/userList";
 import { withUserMutation } from "../../apollo/client-state/user";
-import { colors } from "../../styles";
+import { colors, fonts } from "../../styles";
 
 type Props = {
   navigation: NavigationScreenProp<any, any>;
@@ -31,13 +31,10 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   headerText: {
-    fontSize: 20,
-    fontWeight: "bold",
+    ...fonts.H3,
     marginBottom: 20
   },
-  actionText: {
-    fontSize: 16
-  },
+  actionText: fonts.Body,
   list: {
     height: "70%"
   },

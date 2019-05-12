@@ -18,11 +18,12 @@ exports[`JoinModal renders default 1`] = `
     rejectResponderTermination={true}
     style={
       Object {
-        "borderColor": "gray",
+        "borderColor": "#C3C3C3",
         "borderRadius": 5,
         "borderWidth": 1,
         "height": 40,
         "margin": 10,
+        "paddingHorizontal": 10,
         "width": 200,
       }
     }
