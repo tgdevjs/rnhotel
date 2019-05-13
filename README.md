@@ -10,7 +10,6 @@ react-native run-ios
 
 ![](./resources/app-flow.gif)
 
-<br>
 ### Account
 
 Uses local state management in `Apollo Client` to keep track of users for creating reservations and getting reservations.  
@@ -18,7 +17,6 @@ Uses local state management in `Apollo Client` to keep track of users for creati
 ![](./resources/signin.png)
 ![](./resources/join.png)
 
-<br>
 ### Search Hotel and Create Reservation
 
 Uses separate screens to select dates, select hotels, and book reservations.  
@@ -28,7 +26,6 @@ Uses separate screens to select dates, select hotels, and book reservations.
 ![](./resources/hotels.png)
 ![](./resources/book.png)
 
-<br>
 ### View Reservations
 
 View the current user's reservations by selecting the `stays` tab.  
@@ -36,7 +33,6 @@ View the current user's reservations by selecting the `stays` tab.
 ![](./resources/stays.png)
 ![](./resources/delete.png)
 
-<br>
 ### Tech Stack
 
 Utilizes the following technology stack:
@@ -45,14 +41,12 @@ Apollo-Client
 Jest/Enzyme
 Typescript
 
-<br>
 ### Back End
 
 Apollo Client uses the following queries and mutations: 
 queries: reservations
 mutations: createReservation, deleteReservation
 
-<br>
 ### Local state managment
 
 Apollo Client manages local state of the `recentSearch`, `user`, and `userList` with GraphQL queries and mutations.
@@ -61,7 +55,6 @@ Local state is split into different files for easier organization.
 
 ![](./resources/client-state-folder-structure.png)
 
-<br>
 ### Known issues
 
 1. `Slider deprecation warning when running tests that contain navigation.goBack()`  
