@@ -35,17 +35,17 @@ View the current user's reservations by selecting the `stays` tab.
 
 ### Tech Stack
 
-Utilizes the following technology stack:
-React-Native
-Apollo-Client
-Jest/Enzyme
-Typescript
+Utilizes the following technology stack:  
+React-Native  
+Apollo-Client  
+Jest/Enzyme  
+Typescript  
 
 ### Back End
 
-Apollo Client uses the following queries and mutations: 
-queries: reservations
-mutations: createReservation, deleteReservation
+Apollo Client uses the following queries and mutations:  
+queries: reservations  
+mutations: createReservation, deleteReservation  
 
 ### Local state managment
 
