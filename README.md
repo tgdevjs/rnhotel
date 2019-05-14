@@ -1,4 +1,4 @@
-React Native reservation app using ES6 and pure components.
+React Native reservation app using ES6 and graphql.
 
 ### Install
 
