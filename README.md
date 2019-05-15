@@ -1,10 +1,9 @@
-React Native reservation app using ES6 and graphql.
+React Native reservation app using GraphQL.
 
 ### Install
 
 ```
 yarn
-react-native link
 react-native run-ios
 ```
 
